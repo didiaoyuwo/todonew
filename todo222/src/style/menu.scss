@@ -1,0 +1,42 @@
+.list-todos{
+    width: 50%;
+    margin-left:auto;
+    background-color: gray;
+    .list-todo{
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        border-bottom: solid 1px #fff;
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .icon-lock{
+            position: absolute;
+            left: 13px;
+            top:16px;
+            width: 12px;
+            height: 16px;
+        }
+        .title{
+            margin-left:66px;
+            margin-right:180px;
+        }
+        .count-list{
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 50%;
+            background-color: red;
+            text-align: center;
+        }
+    }
+    .add{
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        color: #5db9ff;
+        cursor: pointer;
+        text-align: center;
+    }
+}

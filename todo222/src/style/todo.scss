@@ -1,0 +1,67 @@
+.lists-show{
+    width: 70%;
+    background-color: burlywood;
+    .nav-group{
+        background-color:gainsboro;
+        .nav-item{
+            padding-bottom: 13px;
+            .title-group{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom:13px;
+                margin-left:33px;
+                .title-container{
+                    display: flex;
+                    .title-wrapper{
+                        margin-right:33px;
+                    }
+                    .count-list{
+                        width: 20px;
+                        height: 25px;
+                        border-radius: 50%;
+                        background-color: blue;
+                        text-align: center;
+                    }
+                }
+                .icons-container{
+                    position: relative;
+                    margin-right:33px;
+                    .icon-lock{
+                        position: absolute;
+                        left: 0;
+                        top:0;
+                        width: 20px;
+                        height: 20px;
+                    }
+                    .icon-delete{
+                        margin-left:20px;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+            .add-content{
+                .input-label{
+                    margin-left:33px;
+                    display: flex;
+                    align-items: center;
+                    .icon-add{
+                        width: 20px;
+                        height: 20px;
+                    }
+                    .text-input{
+                        outline: none;
+                        height: 20px;
+                        border:none;
+                        background-color: transparent;
+                    }
+                }
+                
+            }
+        }
+        .content-items{
+            background-color: blueviolet;
+        }
+    }
+    
+}

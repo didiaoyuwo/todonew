@@ -1,0 +1,12 @@
+@import './base.scss';
+
+.container{
+    display: flex;
+    width: 100%;
+    .menu{
+        width: 33.3%;
+    }
+    .todos{
+        width: 66.6%;
+    }
+}
