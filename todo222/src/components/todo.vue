@@ -16,12 +16,16 @@
                 <div class="add-content">
                     <label for='input' class="input-label">
                         <img src='../assets/imgs/add.png' alt="" class="icon-add" ref='addIcon'>
-                        <input type="text" placeholder="请输入..." name='input' class='text-input' v-model='item.content' @focsu='changeImg' @blur='recoverImg' @keyup.enter='submit(item.content)'>
+                        <input type="text" placeholder="请输入..." name='input' class='text-input' v-model='item.content' @focus='changeImg()' @blur='recoverImg()' @keyup.enter='submit(item.content)'>
                     </label>
                 </div>
             </div>
             <div class="list-content">
-                <qwe></qwe>
+                <ul class="list-ul">
+                    <li v-for='(iitem,index) in iitems' :key='index' class="list-li">
+                        <qwe :item='iitem'></qwe>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -31,6 +35,7 @@ import Item from '@/components/item.vue'
 export default {
   data () {
     return {
+      obj: null,
       item: {
         title: '123123',
         islock: true,
@@ -38,7 +43,21 @@ export default {
         count: 1,
         titleChange: true,
         content: ''
-      }
+      },
+      iitems: [
+        {
+          content: '111111',
+          isChecked: false
+        },
+        {
+          content: '222222',
+          isChecked: false
+        },
+        {
+          content: '333333',
+          isChecked: false
+        }
+      ]
     }
   },
   components: {
@@ -50,19 +69,18 @@ export default {
       this.item.titleChange = !this.item.titleChange
     },
     changeImg () {
-      this.$refs.addIcon[0].src = '../assets/imgs/addcolor.png'
+      console.log(this.$refs.addIcon)
+      this.$refs.addIcon.src = '../assets/imgs/addcolor.png'
     },
     recoverImg () {
-      this.$refs.addIcon[0].src = '../assets/imgs/add.png'
+      this.$refs.addIcon.src = '../assets/imgs/add.png'
     },
     submit (val) {
     //   alert(1)
-      let data = {
-        content: val,
-        isChecked: false
-      }
-      if (data.content !== '') {
-        this.$emit('testa', data)
+      if (val !== '') {
+        this.iitems.push({
+          content: val, isChecked: false
+        })
       }
       this.item.content = ''
     }

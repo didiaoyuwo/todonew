@@ -1,20 +1,18 @@
-.isActive{
-    text-decoration: line-through
+.line{
+    text-decoration: line-through;
 }
-.list-content{
-    .content-items{
-        .content-item{
-            text-indent:2em;
-            position: relative;
-            height: 48px;
-            line-height: 48px;
-            .icon-delete{
-                position: absolute;
-                right: 33px;;
-                top:11px;
-                width: 20px;
-                height: 20px;
-            }
-        }
+.lebal{
+    display: block;
+    height: 48px;
+    position: relative;
+    text-indent: 2em;
+    .item-content{
+    }
+    .icon-delete{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top:11px
     }
 }

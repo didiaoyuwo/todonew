@@ -59,8 +59,14 @@
                 
             }
         }
-        .content-items{
+        .list-content{
             background-color: blueviolet;
+            .list-ul{
+                .list-li{
+                    height: 48px;
+                    line-height: 48px;
+                }
+            }
         }
     }
     
