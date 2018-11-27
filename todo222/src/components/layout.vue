@@ -4,7 +4,7 @@
             <asd></asd>
         </section>
         <section class="todos">
-            <abc></abc>
+            <abc v-on:testa='testb'></abc>
         </section>
     </section>
 </template>
@@ -12,9 +12,19 @@
 import menu from './menu.vue'
 import todo from './todo.vue'
 export default {
+  data () {
+    return {
+      obj: null
+    }
+  },
   components: {
     'asd': menu,
     'abc': todo
+  },
+  methods: {
+    testb (msg) {
+      console.log(msg)
+    }
   }
 }
 </script>

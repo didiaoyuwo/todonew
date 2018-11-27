@@ -15,8 +15,8 @@
                 </h1>
                 <div class="add-content">
                     <label for='input' class="input-label">
-                        <img :src="item.addIcon" alt="" class="icon-add" ref='addIcon'>
-                        <input type="text" placeholder="请输入..." name='input' class='text-input' v-model='item.content' @keyup.enter="item.content = ''" @focus="changeIcon" @blur="recoverIcon">
+                        <img src='../assets/imgs/add.png' alt="" class="icon-add" ref='addIcon'>
+                        <input type="text" placeholder="请输入..." name='input' class='text-input' v-model='item.content' @focsu='changeImg' @blur='recoverImg' @keyup.enter='submit(item.content)'>
                     </label>
                 </div>
             </div>
@@ -37,8 +37,7 @@ export default {
         isdelete: true,
         count: 1,
         titleChange: true,
-        content: '',
-        addIcon: './src/assets/imgs/add.png'
+        content: ''
       }
     }
   },
@@ -50,12 +49,22 @@ export default {
     //   alert(1)
       this.item.titleChange = !this.item.titleChange
     },
-    changeIcon () {
-    //   console.log(this.$refs.addIcon)
-      this.$refs.addIcon.src = './src/assets/imgs/addcolor.png'
+    changeImg () {
+      this.$refs.addIcon[0].src = '../assets/imgs/addcolor.png'
     },
-    recoverIcon () {
-      this.$refs.addIcon.src = './src/assets/imgs/add.png'
+    recoverImg () {
+      this.$refs.addIcon[0].src = '../assets/imgs/add.png'
+    },
+    submit (val) {
+    //   alert(1)
+      let data = {
+        content: val,
+        isChecked: false
+      }
+      if (data.content !== '') {
+        this.$emit('testa', data)
+      }
+      this.item.content = ''
     }
   }
 }
