@@ -1,6 +1,6 @@
 <template>
     <div class="list-todos">
-        <div class="list-todo" v-for='(item,index) in items' :key='index'>
+        <div class="list-todo" v-for='(item,index) in items' :key='index' @click='jump(index)'>
             <img class="icon-lock" src='../assets/imgs/lock.png' v-if='item.islock'>
             <p class="title">{{item.title}}</p>
             <span class="count-list" v-if='item.count > 0'>{{item.count}}</span>
@@ -11,20 +11,11 @@
     </div>
 </template>
 <script>
+import { getTodo } from '@/api/api.js'
 export default {
   data () {
     return {
-      items: [
-        {
-          title: '星期一', count: 1, islock: true
-        },
-        {
-          title: '星期二', count: 2, islock: true
-        },
-        {
-          title: '星期三', count: 3, islock: true
-        }
-      ]
+      items: []
     }
   },
   methods: {
@@ -37,7 +28,15 @@ export default {
           islock: true
         }
       )
+    },
+    jump (index) {
+      this.$router.push({name: 'todo', params: {id: index}})
     }
+  },
+  mounted () {
+    getTodo().then(res => {
+      this.items = res.data
+    })
   }
 }
 </script>

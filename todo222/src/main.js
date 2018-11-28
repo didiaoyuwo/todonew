@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { focus } from '@/directives/focus'
+import Mock from '@/mock/index.js'
+
+Mock.start()
 
 Vue.config.productionTip = false
 
