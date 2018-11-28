@@ -15,8 +15,8 @@
                 </h1>
                 <div class="add-content">
                     <label for='input' class="input-label">
-                        <img src='../assets/imgs/add.png' alt="" class="icon-add" ref='addIcon'>
-                        <input type="text" placeholder="请输入..." name='input' class='text-input' v-model='item.content' @focus='changeImg()' @blur='recoverImg()' @keyup.enter='submit(item.content)'>
+                        <img :src='url' alt="" class="icon-add" ref='addIcon'>
+                        <input type="text" placeholder="请输入..." name='input' class='text-input' v-model='content' @focus='changeImg()' @blur='recoverImg()' @keyup.enter='submit(content)'>
                     </label>
                 </div>
             </div>
@@ -32,17 +32,20 @@
 </template>
 <script>
 import Item from '@/components/item.vue'
+import add from '@/assets/imgs/add.png'
+import addcolor from '@/assets/imgs/addcolor.png'
 export default {
   data () {
     return {
+      url: add,
       obj: null,
+      content: '',
       item: {
         title: '123123',
         islock: true,
         isdelete: true,
         count: 1,
-        titleChange: true,
-        content: ''
+        titleChange: true
       },
       iitems: [
         {
@@ -69,11 +72,11 @@ export default {
       this.item.titleChange = !this.item.titleChange
     },
     changeImg () {
-      console.log(this.$refs.addIcon)
-      this.$refs.addIcon.src = '../assets/imgs/addcolor.png'
+      // console.log(this.$refs.addIcon)
+      this.url = addcolor
     },
     recoverImg () {
-      this.$refs.addIcon.src = '../assets/imgs/add.png'
+      this.url = add
     },
     submit (val) {
     //   alert(1)
@@ -82,7 +85,7 @@ export default {
           content: val, isChecked: false
         })
       }
-      this.item.content = ''
+      this.content = ''
     }
   }
 }

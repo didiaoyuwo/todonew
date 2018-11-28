@@ -34,7 +34,7 @@ export default {
         {
           title: 'newList',
           count: 0,
-          islock: false
+          islock: true
         }
       )
     }

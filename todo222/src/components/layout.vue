@@ -4,20 +4,18 @@
             <asd></asd>
         </section>
         <section class="todos">
-            <abc></abc>
+            <router-view></router-view>
         </section>
     </section>
 </template>
 <script>
 import menu from './menu.vue'
-import todo from './todo.vue'
 export default {
   data () {
     return {}
   },
   components: {
-    'asd': menu,
-    'abc': todo
+    'asd': menu
   },
   methods: {}
 }
