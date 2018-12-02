@@ -36,7 +36,9 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getTodo').then()
+    this.$store.dispatch('getTodo').then(() => {
+      this.$nextTick()
+    })
   },
   computed: {
     data () {
