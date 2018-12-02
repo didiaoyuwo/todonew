@@ -5,13 +5,14 @@
             <p class="title">{{item.title}}</p>
             <span class="count-list" v-if='item.count > 0'>{{item.count}}</span>
         </div>
-        <a class="add" @click='add'>
+        <a class="add" @click='addTodoList'>
             +新增
         </a>
         {{this.data}}
     </div>
 </template>
 <script>
+import { addTodo } from '@/api/api'
 export default {
   data () {
     return {
@@ -21,33 +22,30 @@ export default {
     }
   },
   methods: {
-    add () {
-      // alert(1)
-      this.items.push(
-        {
-          title: 'newList',
-          count: 0,
-          islock: true
-        }
-      )
-    },
     goList (id) {
       this.todoID = id
+    },
+    addTodoList () {
+      addTodo()
+      this.$nextTick(() => {
+        console.log(this.data)
+      })
     }
   },
   created () {
     this.$store.dispatch('getTodo').then(() => {
-      this.$nextTick()
+      this.$nextTick(() => {
+        this.goList(this.data[0].id)
+      })
     })
   },
   computed: {
     data () {
-      const number = this.$store.getters.getTodoList.length
-      if (this.$store.getters.getTodoList.length < this.todoNum) {
-        this.goList(this.$store.getters.getTodoList[0].id)
-      }
-      this.todoNum = number
-      // return number
+      // const number = this.$store.getters.getTodoList.length
+      // if (this.$store.getters.getTodoList.length < this.todoNum) {
+      //   this.goList(this.$store.getters.getTodoList[0].id)
+      // }
+      // // this.todoNum = number
       return this.$store.getters.getTodoList
     }
   }
