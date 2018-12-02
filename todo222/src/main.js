@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import { focus } from '@/directives/focus'
 import Mock from '@/mock/index.js'
+import store from '@/vuex/index.js'
 
 Mock.start()
 
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
   directives: {

@@ -4,26 +4,18 @@ let Todos = []
 const Count = [1, 2, 3, 4, 5]
 for (let i = 0; i < Count.length; i++) {
   Todos.push(Mock.mock({
-    title: Mock.Random.ctitle(4),
-    islock: Mock.Random.boolean(),
-    count: Mock.Random.natural(0, 9)
-  }))
-}
-
-let Items = []
-const Number = [1, 2, 3, 4, 5]
-for (let i = 0; i < Number.length; i++) {
-  Items.push(Mock.mock({
-    title: Mock.Random.ctitle(4),
-    islock: Mock.Random.boolean(),
-    count: Mock.Random.natural(0, 9),
-    itmes: Number.map(() => {
+    id: Mock.Random.guid(), // 随机id
+    title: Mock.Random.first(), // 随机标题
+    isDelete: false, // 是否删除
+    locked: Mock.Random.boolean(), // 随机锁定
+    record: Count.map(() => { // 代办单项列表的数据
       return {
-        isChecked: Mock.Random.boolean(),
-        content: Mock.Random.cparagraph(1, 2)
+        text: Mock.Random.cparagraph(2), // 随机内容
+        isDelete: false, // 是否删除
+        checked: Mock.Random.boolean() // 是否完成
       }
     })
   }))
 }
 
-export { Todos, Items }
+export { Todos }

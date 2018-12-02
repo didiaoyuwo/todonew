@@ -34,7 +34,6 @@
 import Item from '@/components/item.vue'
 import add from '@/assets/imgs/add.png'
 import addcolor from '@/assets/imgs/addcolor.png'
-import { getItems } from '@/api/api.js'
 export default {
   data () {
     return {
@@ -88,10 +87,6 @@ export default {
       }
       this.content = ''
     }
-  },
-  mounted () {
-    console.log(this.$router)
-    getItems().then(res => { this.item = res.data })
   }
 }
 </script>
