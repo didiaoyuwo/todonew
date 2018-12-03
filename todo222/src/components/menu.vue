@@ -21,14 +21,26 @@ export default {
       todoNum: 0
     }
   },
+  watch: {
+    'todoId' (id) {
+      this.$router.push({name: 'todo', params: { id: id }})
+    }
+  },
   methods: {
     goList (id) {
       this.todoID = id
+      // console.log(this.todoID)
     },
     addTodoList () {
-      addTodo()
-      this.$nextTick(() => {
-        console.log(this.data)
+      // console.log(addTodo())
+      addTodo().then((data) => {
+        this.$store.dispatch('getTodo').then(() => {
+          this.$nextTick(() => {
+            setTimeout(() => {
+              this.goList(this.data[this.data.length - 1].id)
+            }, 200)
+          })
+        })
       })
     }
   },

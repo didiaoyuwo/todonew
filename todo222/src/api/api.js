@@ -5,5 +5,5 @@ export const getTodoList = (params) => {
 }
 
 export const addTodo = (params) => {
-  return axios.post('/todo/addTodo', params).then(res => console.log(res))
+  return axios.post('/todo/addTodo', params).then(res => res.data)
 }
